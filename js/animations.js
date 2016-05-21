@@ -1,6 +1,8 @@
-$(document).ready(function() {
-
+$(document).rseady(function() {
+	var day = new Date();
   $('.tweet-actions').hide();
+	$('.stats').hide();
+	$('.reply').hide();
 
   $('#compose-tweet').on('click', function(e) {
     e.stopPropagation();
@@ -12,6 +14,8 @@ $(document).ready(function() {
     $('#compose-tweet').css('height', '2.5em');
     $('#tweet-controls').hide();
   });
+	
+	var retweetCount = 0;
 
 
 
@@ -68,7 +72,7 @@ $(document).ready(function() {
               '<div class="users-interact">' +
               '</div>' +
               '<div class="time">' +
-                'less than a minute ago' +
+                'less than a minute ago' + //CHANGE TIME 
               '</div>' +
             '</div>' +
             '<div class="reply">' +
@@ -80,17 +84,49 @@ $(document).ready(function() {
         $('#compose-tweet').val('');
       }
 
+		
+	$('.tweet-actions').hide();
+	$('.stats').hide();
+	$('.reply').hide();
+
 
   });
+	
 
 
-$('.tweet').mouseenter(function() {
-    $(this).find('.tweet-actions').slideDown('medium');
-		$()
-  });
-$('.tweet').mouseleave(function() {
-    $('.tweet-actions').slideUp('medium');
-  });
-  
+ 
+//THIS HIES THE REPLY, FAV ect.
+	$('body').on({
+   mouseenter: function() {
+     $(this).find('.tweet-actions').slideDown('fast');
+   },
+   mouseleave: function() {
+     $('.tweet-actions').slideUp('medium')
+   }
+ }, '.content');
+
+ $('body').on({
+  click: function() {
+    $(this).find('.stats').slideDown('medium');
+  },
+  mouseleave: function() {
+    $('.stats').slideUp('medium');
+  }
+}, '.content');
+
+$('body').on({
+ click: function() {
+   $(this).find('.reply').slideDown('medium');
+ },
+ mouseleave: function() {
+   $('.reply').slideUp('medium');
+ }
+}, '.content');
+
+	
+///RETWEET COUNTER DOESNT WORK THAT WELL	
+$('#retweetIcon').on('click', function(){
+	$('.num-retweets').html(++retweetCount);
+})
 
 });
