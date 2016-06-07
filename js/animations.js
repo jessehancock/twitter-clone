@@ -1,4 +1,4 @@
-$(document).rseady(function() {
+$(document).ready(function() {
 	var day = new Date();
   $('.tweet-actions').hide();
 	$('.stats').hide();
@@ -14,7 +14,7 @@ $(document).rseady(function() {
     $('#compose-tweet').css('height', '2.5em');
     $('#tweet-controls').hide();
   });
-	
+
 	var retweetCount = 0;
 
 
@@ -72,7 +72,7 @@ $(document).rseady(function() {
               '<div class="users-interact">' +
               '</div>' +
               '<div class="time">' +
-                'less than a minute ago' + //CHANGE TIME 
+                'less than a minute ago' + //CHANGE TIME
               '</div>' +
             '</div>' +
             '<div class="reply">' +
@@ -84,17 +84,17 @@ $(document).rseady(function() {
         $('#compose-tweet').val('');
       }
 
-		
+
 	$('.tweet-actions').hide();
 	$('.stats').hide();
 	$('.reply').hide();
 
 
   });
-	
 
 
- 
+
+
 //THIS HIES THE REPLY, FAV ect.
 	$('body').on({
    mouseenter: function() {
@@ -123,10 +123,10 @@ $('body').on({
  }
 }, '.content');
 
-	
-///RETWEET COUNTER DOESNT WORK THAT WELL	
-$('#retweetIcon').on('click', function(){
-	$('.num-retweets').html(++retweetCount);
-})
+
+// RETWEET COUNTER DOESNT WORK THAT WELL
+// $('#retweetIcon').on('click', function(){
+// 	$('.num-retweets').html(++retweetCount);
+// })
 
 });
